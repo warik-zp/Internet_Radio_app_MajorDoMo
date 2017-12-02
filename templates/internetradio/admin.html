@@ -1,0 +1,11 @@
+[#if VIEW_MODE="list_stations" || VIEW_MODE=""#]
+	[#inc list_stations.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="import_stations"#]
+	[#inc import_stations.html#]
+[#endif VIEW_MODE#]
+
+[#if VIEW_MODE="edit_stations"#]
+	[#inc edit_stations.html#]
+[#endif VIEW_MODE#]

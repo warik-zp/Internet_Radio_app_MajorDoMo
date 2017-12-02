@@ -1,0 +1,65 @@
+<p>
+  <a href="?view_mode=edit_stations" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Добавить</a>
+  <a href="?view_mode=import_stations" class="btn btn-default"><span class="glyphicon glyphicon-file"></span> Импорт</a>
+</p>
+
+<!-- table список станций  -->
+
+[#if RESULT#]
+
+<table  align=center class="table table-condensed">
+<tbody>
+
+  <tr>
+    <td height=1 align=center>
+      ID
+    </td>
+    <td height=10 align=center>
+      Название
+    </td>
+    <td align=center>
+      URL станции
+    </td>
+
+    [#if "<#ACTION#>"=="admin"#]
+      <td width="1%">
+
+      </td>
+      <td width="1%">
+
+      </td>
+    [#endif ACTION#]
+  </tr>
+
+[#begin RESULT#]
+  <tr>
+    <td height=1 align=center>
+      [#ID#]
+    </td>
+    <td height=10 align=center>
+      [#Name#]
+    </td>
+    <td align=center>
+      [#URL#]
+    </td>
+    [#if "<#ACTION#>"=="admin"#]
+      <td width="1%">
+        <a href="?view_mode=edit_stations&id=[#ID#]"  title="<#LANG_EDIT#>"><span class="glyphicon glyphicon-pencil"></span></a>
+      </td>
+      <td width="1%">
+        <a href="?view_mode=delete_stations&id=[#ID#]" onClick="return confirm('<#LANG_ARE_YOU_SURE#>')" title="<#LANG_DELETE#>"><span class="glyphicon glyphicon-remove"></span></a>
+      </td>
+    [#endif ACTION#]
+  </tr>
+[#end RESULT#]
+
+</tbody>
+</table>
+
+[#else RESULT#]
+  <p>
+    <font color="red">Станций не найдено</font>
+  </p>
+[#endif RESULT#]
+<!-- / results -->
+</td></tr></table>
